@@ -14,20 +14,17 @@ export default function Home() {
 
   const handleSignIn = async () => {
     try {
-      console.log("Username: ", username);
-      console.log("Password: ", password);
-      
-      // const url = `${config.apiUrl}/api/user/admin-signin`;
-      // const payload = {
-      //   username,
-      //   password
-      // }
-      // const res = await axios.post(url, payload);
+      const url = `${config.apiUrl}/api/users/admin-signin`;
+      const payload = {
+        username,
+        password
+      }
+      const res = await axios.post(url, payload);
 
-      // if (res.status === 200) {
-      //   localStorage.setItem(config.tokenKey, res.data);
-      //   router.push("/erp/dashboard");
-      // }
+      if (res.status === 200) {
+        localStorage.setItem(config.tokenKey, res.data);
+        router.push("/erp/dashboard");
+      }
     } catch (error) {
       Swal.fire({
         icon: "error",
