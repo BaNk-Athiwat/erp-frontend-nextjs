@@ -74,8 +74,8 @@ export default function Sidemenu() {
                         <i className="fas fa-user mr-3"></i>
                         { username }
                     </div>
-                    <div className="flex gap-1 m-3 justify-center">
-                        <Link href={'erp/user/edit'} className="btn-edit">
+                    <div className="flex gap-3 m-3 justify-center">
+                        <Link href={'/erp/user/edit'} className="btn-edit">
                             <i className="fas fa-edit mr-2"></i>
                             Edit
                         </Link>
@@ -88,43 +88,43 @@ export default function Sidemenu() {
                 <nav>
                     <ul className="sidebar-nav-list">
                         <li className="sidebar-nav-item">
-                            <Link href={ 'erp/dashboard' } className="sidebar-nav-link">
+                            <Link href={ '/erp/dashboard' } className="sidebar-nav-link">
                                 <i className="fas fa-home mr-2"></i>
                                 Dashboard
                             </Link>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ 'erp/stock' } className="sidebar-nav-link">
+                            <Link href={ '/erp/stock' } className="sidebar-nav-link">
                                 <i className="fas fa-box-open mr-2"></i>
                                 Stock สินค้า
                             </Link>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ 'erp/production' } className="sidebar-nav-link">
+                            <Link href={ '/erp/production' } className="sidebar-nav-link">
                                 <i className="fas fa-cogs mr-2"></i>
                                 การผลิตสินค้า
                             </Link>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ 'erp/sale' } className="sidebar-nav-link">
+                            <Link href={ '/erp/sale' } className="sidebar-nav-link">
                                 <i className="fas fa-money-bill-trend-up mr-2"></i>
                                 ขาย
                             </Link>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ 'erp/account' } className="sidebar-nav-link">
+                            <Link href={ '/erp/account' } className="sidebar-nav-link">
                                 <i className="fas fa-file-invoice-dollar mr-2"></i>
                                 บัญชี
                             </Link>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ 'erp/report' } className="sidebar-nav-link">
+                            <Link href={ '/erp/report' } className="sidebar-nav-link">
                                 <i className="fas fa-chart-line mr-2"></i>
                                 รายงาน
                             </Link>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ 'erp/user' } className="sidebar-nav-link">
+                            <Link href={ '/erp/user' } className="sidebar-nav-link">
                                 <i className="fas fa-user-alt mr-2"></i>
                                 ผู้ใช้งานระบบ
                             </Link>
