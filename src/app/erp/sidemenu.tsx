@@ -11,10 +11,12 @@ import Swal from "sweetalert2";
 export default function Sidemenu() {
 
     const [username, setUsername] = useState("");
+    const [currentPath, setCurrentPath] = useState("");
     const router = useRouter();
 
     useEffect(() => {
         fetchData();
+        setCurrentPath(localStorage.getItem('currentPath') || '');
     }, [])
 
     const fetchData = async() => {
@@ -62,6 +64,16 @@ export default function Sidemenu() {
         }
     }
 
+    const navigateAandSetCurrentPath = (path: string) => {
+        router.push(path);
+        setCurrentPath(path);
+        localStorage.setItem('currentPath', path);
+    }
+
+    const isActive = (path: string) => {
+        return currentPath === path ? 'sidebar-nav-link-active' : 'sidebar-nav-link';
+    }
+
     return(
         <div className="sidebar">
             <div className="sidebar-container">
@@ -88,46 +100,46 @@ export default function Sidemenu() {
                 <nav>
                     <ul className="sidebar-nav-list">
                         <li className="sidebar-nav-item">
-                            <Link href={ '/erp/dashboard' } className="sidebar-nav-link">
+                            <div onClick={ () => navigateAandSetCurrentPath('/erp/dashboard') } className={ isActive('/erp/dashboard') }>
                                 <i className="fas fa-home mr-2"></i>
                                 Dashboard
-                            </Link>
+                            </div>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ '/erp/stock' } className="sidebar-nav-link">
+                            <div onClick={ () => navigateAandSetCurrentPath('/erp/stock') } className={ isActive('/erp/stock') }>
                                 <i className="fas fa-box-open mr-2"></i>
                                 Stock สินค้า
-                            </Link>
+                            </div>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ '/erp/production' } className="sidebar-nav-link">
+                            <div onClick={ () => navigateAandSetCurrentPath('/erp/production') } className={ isActive('/erp/production') }>
                                 <i className="fas fa-cogs mr-2"></i>
                                 การผลิตสินค้า
-                            </Link>
+                            </div>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ '/erp/sale' } className="sidebar-nav-link">
+                            <div onClick={ () => navigateAandSetCurrentPath('/erp/sale') } className={ isActive('/erp/sale') }>
                                 <i className="fas fa-money-bill-trend-up mr-2"></i>
                                 ขาย
-                            </Link>
+                            </div>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ '/erp/account' } className="sidebar-nav-link">
+                            <div onClick={ () => navigateAandSetCurrentPath('/erp/account') } className={ isActive('/erp/account') }>
                                 <i className="fas fa-file-invoice-dollar mr-2"></i>
                                 บัญชี
-                            </Link>
+                            </div>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ '/erp/report' } className="sidebar-nav-link">
+                            <div onClick={ () => navigateAandSetCurrentPath('/erp/report') } className={ isActive('/erp/report') }>
                                 <i className="fas fa-chart-line mr-2"></i>
                                 รายงาน
-                            </Link>
+                            </div>
                         </li>
                         <li className="sidebar-nav-item">
-                            <Link href={ '/erp/user' } className="sidebar-nav-link">
+                            <div onClick={ () => navigateAandSetCurrentPath('/erp/user') } className={ isActive('/erp/user') }>
                                 <i className="fas fa-user-alt mr-2"></i>
                                 ผู้ใช้งานระบบ
-                            </Link>
+                            </div>
                         </li>
                     </ul>
                 </nav>
