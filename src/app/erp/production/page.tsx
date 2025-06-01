@@ -13,7 +13,7 @@ export default function Productlion() {
     const [showModal, setShowModal] = useState(false);
     const [editingProduction, setEditingProduction] = useState<ProductionInterface | null>(null);
     const [name, setName] = useState('');
-    const [detail, setDetail] = useState('');
+    const [details, setDetails] = useState('');
 
     useEffect(() => {
         fetchData();
@@ -42,14 +42,14 @@ export default function Productlion() {
     const handleAdd = () => {
         setEditingProduction(null);
         setName('');
-        setDetail('');
+        setDetails('');
         setShowModal(true);
     }
 
     const handleEdit = (production: ProductionInterface) => {
         setEditingProduction(production);
         setName(production.name);
-        setDetail(production.details);
+        setDetails(production.details);
         setShowModal(true);
     }
 
@@ -93,9 +93,10 @@ export default function Productlion() {
 
         try {
             const token = localStorage.getItem(config.tokenKey);
-            const data = {
+            const data: ProductionInterface = {
+                id: null,
                 name: name,
-                detail: detail
+                details: details
             }
             const headers = {
                 'Authorization': 'Bearer ' + token
@@ -195,8 +196,8 @@ export default function Productlion() {
                         </div>
                         <div className="mb-4">
                             <label className="block mb-2">รายละเอียด</label>
-                            <input type="text" className="form-input" value={detail}
-                                onChange={e => setDetail(e.target.value)} />
+                            <input type="text" className="form-input" value={details}
+                                onChange={e => setDetails(e.target.value)} />
                         </div>
                         <div className="flex justify-end gap-2">
                             <button type="button" onClick={() => setShowModal(false)}

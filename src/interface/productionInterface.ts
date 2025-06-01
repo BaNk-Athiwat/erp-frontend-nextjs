@@ -1,5 +1,5 @@
 export interface ProductionInterface {
-    id: number;
+    id: number | null;
     name: string;
     details: string;
 }
